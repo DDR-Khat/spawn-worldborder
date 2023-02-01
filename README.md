@@ -1,6 +1,11 @@
 # Spawn (fake) Border
 A Server utility mod for visualising spawn chunks of the world by sending a fake world border to a client within it.
 
+[BorderFirstPerson.webm](https://user-images.githubusercontent.com/66983153/216110232-75678b71-a546-4a01-9d1a-26c751dfeffa.webm)
+
+## Disclaimer
+This mod is provided as-is and was mainly made for personal use, while it should be theoretically impossible (given that this mod doesn't write any data) any loss of data is at your own risk.
+
 ## Goal
 To provide Server Operators with a approach to give a visual guide to any players that are within the Spawn Chunks of a world without needing any client modifications, this is often important to know as part of a lag optimisation tactic to ensure that server performance is only being consumed by player-made structures if they are actively within them.
 
@@ -12,7 +17,8 @@ When the server is started, the mod will watch for when the game requests for a 
   - If they were inside of this area and no longer are, sends a World Border data pack with the original world border data.
 
 ## Installation
-//TO DO
+Grab the correct JAR from the [release page](https://github.com/DDR-Khat/spawn-worldborder/releases) for your Minecraft version, and simply put it into your MODS folder.
+ - This mod does rely on the Fabric API.
 
 ## Usage
 This mod takes no specific adjustments and provides no cofiguration file and will just automatically operate.
