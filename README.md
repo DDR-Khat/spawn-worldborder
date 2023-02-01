@@ -1,7 +1,7 @@
 # Spawn (fake) Border
 A Server utility mod for visualising spawn chunks of the world by sending a fake world border to a client within it.
 
-[BorderFirstPerson.webm](https://user-images.githubusercontent.com/66983153/216110232-75678b71-a546-4a01-9d1a-26c751dfeffa.webm)
+![BorderFirstPerson](https://user-images.githubusercontent.com/66983153/216117495-d41a5bc9-2ee2-491a-871d-db65f96c0c33.gif) ![BorderThirdPersonLQ](https://user-images.githubusercontent.com/66983153/216118655-8e420f3c-9708-4b36-928c-14a71bfc9356.gif)
 
 ## Disclaimer
 This mod is provided as-is and was mainly made for personal use, while it should be theoretically impossible (given that this mod doesn't write any data) any loss of data is at your own risk.
