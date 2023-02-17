@@ -22,6 +22,8 @@ public abstract class ServerChunkManagerMixin
         spawnArea.setEndX(pos.getEndX()+(radius*chunkSize)); // Store Highest X
         spawnArea.setEndZ(pos.getEndZ()+(radius*chunkSize)); // Store Highest Z
         fakeWorldBorder.setCenter(pos.getCenterX(),pos.getCenterZ()); // Position FakeBorder @ Spawn's centered chunk block position.
+        fakeNetherBorder.setCenter(pos.getCenterX(),pos.getCenterZ()); // Position FakeBorder @ Nether "Spawn"'s centered chunk block position.
         fakeWorldBorder.setSize(Math.max(spawnArea.getxDifference(), spawnArea.getzDifference())+borderOverhang); // Set the size of the border to the length of X or Z, plus overhang so the player shouldn't collide with it.
+        fakeNetherBorder.setSize((Math.max(spawnArea.getxDifference(), spawnArea.getzDifference())/(float)8)+borderOverhang); // Set the size of the border to the length of X or Z, plus overhang so the player shouldn't collide with it.
     }
 }

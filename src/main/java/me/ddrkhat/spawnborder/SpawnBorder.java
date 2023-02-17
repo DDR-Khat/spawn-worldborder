@@ -2,8 +2,11 @@ package me.ddrkhat.spawnborder;
 
 import me.ddrkhat.spawnborder.events.Events;
 import net.fabricmc.api.DedicatedServerModInitializer;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.border.WorldBorder;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.DimensionTypes;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,8 +20,9 @@ public class SpawnBorder implements DedicatedServerModInitializer
 	public static final String MOD_ID = "spawnborder";
 	public static ChunkArea spawnArea = new ChunkArea();
 	public static final int chunkSize = 16;
-	public static final int borderOverhang = 4;
+	public static final int borderOverhang = 6;
 	public static WorldBorder fakeWorldBorder = new WorldBorder();
+	public static WorldBorder fakeNetherBorder = new WorldBorder();
 	public static ArrayList<UUID> playersInSpawn = new ArrayList<>();
 
 	public static void log(Level level, String message)
@@ -37,5 +41,12 @@ public class SpawnBorder implements DedicatedServerModInitializer
 	 * @param player The player's entity on the server
 	 * @return TRUE if we believe they are in spawn area. False otherwise.
 	*/
-	public static boolean inSpawnChunks(ServerPlayerEntity player) { return player.getX() >= spawnArea.getStartX() && player.getX() <= spawnArea.getEndX() && player.getZ() >= spawnArea.getStartZ() && player.getZ() <= spawnArea.getEndZ(); }
+	public static boolean inSpawnChunks(ServerPlayerEntity player)
+	{
+		RegistryKey<DimensionType> dimension = player.getWorld().getDimensionKey();
+		if(dimension.equals(DimensionTypes.OVERWORLD)) return player.getX() >= spawnArea.getStartX() && player.getX() <= spawnArea.getEndX() && player.getZ() >= spawnArea.getStartZ() && player.getZ() <= spawnArea.getEndZ();
+		else return player.getX() >= (spawnArea.getStartX()/(float)8) && player.getX() <= (spawnArea.getEndX()/(float)8) && player.getZ() >= (spawnArea.getStartZ()/(float)8) && player.getZ() <= (spawnArea.getEndZ()/(float)8);
+	}
+
+	public static boolean inOverworldOrNether(RegistryKey<DimensionType> dimension) { return dimension.equals(DimensionTypes.OVERWORLD) || dimension.equals(DimensionTypes.THE_NETHER); }
 }
