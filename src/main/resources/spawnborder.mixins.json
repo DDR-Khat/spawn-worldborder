@@ -4,6 +4,7 @@
   "package": "me.ddrkhat.spawnborder.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EntityMixin",
     "ServerChunkManagerMixin",
     "ServerPlayNetworkHandlerMixin",
     "SPEMixin"
