@@ -21,7 +21,7 @@ public class SpawnBorder implements DedicatedServerModInitializer
 	public static ChunkArea spawnArea = new ChunkArea();
 	public static final int chunkSize = 16; // Size of chunks (Just in case they change in the future)
 	public static final int borderOverhang = 8; // How many blocks beyond the max (so they see it but can still pass through our fake border)
-	public static final int extraChunkCount = 4; // Count THIS many checks beyond the ticket count, because of lazy chunk etc.
+	public static final int extraChunkCount = 10; // Count THIS many checks beyond the ticket count, because of lazy chunk etc.
 	public static WorldBorder fakeWorldBorder = new WorldBorder(), fakeNetherBorder = new WorldBorder();
 	public static ArrayList<UUID> playersInSpawn = new ArrayList<>();
 
